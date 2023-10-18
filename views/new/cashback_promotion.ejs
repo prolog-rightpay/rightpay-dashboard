@@ -1,0 +1,180 @@
+<%- include('../header') %>
+<%- include('title') %>
+
+
+<div class="mt-3">
+    <form>
+        <div class="mb-3">
+            <label class="form-label" for="payment-method">Payment Method</label>
+            <div>
+                <select id="payment-method" class="form-select">
+                    <option value="">Select payment method</option>
+                    <option value="">Chase Freedom</option>
+                    <option value="">American Express Platinum Card</option>
+                </select>
+            </div>
+            <div class="form-text">Payment method that contains the promotion.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="cashback-type">Cashback Type</label>
+            <div>
+                <select id="cashback-type" class="form-select">
+                    <option value="percentage">Percentage</option>
+                    <option value="reimbursement">Reimbursement</option>
+                </select>
+            </div>
+            <div class="form-text">Percentage is <i>x%</i> back on purchases. Reimbursement is a cashback cash sum on minimum spend reached.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="cashback-percentage" class="form-label">Cashback Percentage %</label>
+            <input type="number" class="form-control" id="cashback-percentage" step="0.01" value="0.0">
+            <div class="form-text">Provide a float value from 0 to 1, 5% would be 0.05.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="spending-min" class="form-label">Spending Minimum $</label>
+            <input type="text" class="form-control" id="spending-min">
+            <div class="form-text">Optional minimum amount that must be spent for promotion to apply.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Spending Maximum $</label>
+            <input type="text" class="form-control" id="name">
+            <div class="form-text">Optional maximum amount until the promotion stops applying.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="spending-cycle">Spending Cycle</label>
+            <div>
+                <select id="spending-cycle" class="form-select">
+                    <option value="">None</option>
+                    <option value="">Annually</option>
+                    <option value="">Monthly</option>
+                    <option value="">Daily</option>
+                    <option value="">Billing Cycle</option>
+                </select>
+            </div>
+            <div class="form-text">When do maximum and minimum caps reset and when cashback rewards are tracked.</div>
+        </div>
+
+        <div class="mb-4">
+            <input class="form-check-input" type="checkbox" value="" id="enrollment-required">
+            <label class="form-check-label" for="enrollment-required">Promotion requires enrollment</label>
+            <div class="form-text">Promotion is not automatically active and requires users to manually enroll.</div>
+        </div>
+
+        <div class="mb-4 p-3 rounded border bg-light">
+            <p class="mb-0"><b>Included Businesses</b></p>
+            <p class="mt-0 mb-3">Configure business that the promotion applies to.</p>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="inclusions-apply">
+                <label class="form-check-label" for="inclusions-apply">Promotion only applies to specific businesses</label>
+            </div>
+            <div class="form-text mb-3">Leaving unselected assumes promotion applies to all transactions, barring excluded businesses.</div>
+
+            <label class="form-label" for="included-business-categories">Businesses categories</label>
+            <div class="d-flex mb-2">
+                <select id="included-business-categories" class="form-select">
+                    <option value="">Select category</option>
+                    <option value="">Monthly</option>
+                    <option value="">Daily</option>
+                    <option value="">Billing Cycle</option>
+                </select>
+                <button style="width: 160px" class="btn btn-primary ms-2">Add Inclusion</b>
+            </div>
+
+            <div class="mb-3">
+                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">resturant <b>x</b></span>
+            </div>
+
+            <label class="form-label" for="included-businesses">Specific businesses</label>
+            <div class="d-flex mb-2">
+                <input class="form-control" type="text" id="included-businesses">
+                <button style="width: 160px" class="btn btn-primary ms-2">Add Inclusion</b>
+            </div>
+
+            <div class="mb-3">
+                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">walmart <b>x</b></span>
+            </div>
+        </div>
+
+        <div class="mb-4 p-3 rounded border bg-light">
+            <p class="mb-0"><b>Excluded Businesses</b></p>
+            <p class="mt-0 mb-3">Configure businesses that are excluded from the promotion.</p>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="exclusions-apply">
+                <label class="form-check-label" for="exclusions-apply">Promotion excludes specific businesses</label>
+            </div>
+
+            <label class="form-label" for="excluded-business-categories">Businesses categories</label>
+            <div class="d-flex mb-2">
+                <select id="excluded-business-categories" class="form-select">
+                    <option value="">Select category</option>
+                    <option value="">Monthly</option>
+                    <option value="">Daily</option>
+                    <option value="">Billing Cycle</option>
+                </select>
+                <button style="width: 160px" class="btn btn-primary ms-2">Add Exclusion</b>
+            </div>
+
+            <div class="mb-3">
+                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">resturant <b>x</b></span>
+            </div>
+
+            <label class="form-label" for="excluded-businesses">Specific businesses</label>
+            <div class="d-flex mb-2">
+                <input class="form-control" id="excluded-businesses" type="text">
+                <button style="width: 160px" class="btn btn-primary ms-2">Add Exclusion</b>
+            </div>
+
+            <div class="mb-3">
+                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">walmart <b>x</b></span>
+            </div>
+        </div>
+
+        <div class="mb-4 p-3 rounded border bg-light">
+            <p class="mb-0"><b>Time Period</b></p>
+            <p class="mt-0 mb-3">Configure the time period that this promotion applies.</p>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="time-period-applies">
+                <label class="form-check-label" for="time-period-applies">Promotion is only active for a period of time</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="time-period-start" class="form-label">Start Date of Promotion</label>
+                <input type="datetime-local" class="form-control" id="time-period-start">
+                <div class="form-text">Optional, only providing end date assumes promotion is already active.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="time-period-end" class="form-label">End Date of Promotion</label>
+                <input type="datetime-local" class="form-control" id="time-period-end">
+            </div>
+        </div>
+
+        <div class="mb-4 p-3 rounded border bg-light">
+            <p class="mb-3"><b>Introductory Offer</b></p>
+            <!-- <p class="mt-0 mb-3">Configure</p> -->
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="is-introductory">
+                <label class="form-check-label" for="is-introductory">Promotion is an introductory offer</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="introductory-days-length" class="form-label">Length of promotion (days)</label>
+                <input type="number" class="form-control" id="introductory-days-length">
+                <div class="form-text">Length in days of introductory promotion. Will be relative to user's payment method signup date.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-4">Save</button>
+    </form>
+</div>
+
+<%- include('../footer') %>

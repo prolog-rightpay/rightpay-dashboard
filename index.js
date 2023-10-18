@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 
 app.set("view engine", "ejs")
-app.use(express.static("static"))
+app.use("/static", express.static("static"))
 
 app.get("/dashboard/issuers", (req, res) => {
     const opts = {
@@ -74,7 +74,8 @@ app.get("/dashboard/promotions/new/", (req, res) => {
         subtitle: "Create a new cashback promotion",
         back_url: "/dashboard/promotions",
         js: [
-            "/static/js/dashboard/issuers.js"
+            "/static/js/multiselect.js",
+            "/static/js/new/cashback_promotion.js"
         ]
     }
     res.render("new/cashback_promotion", opts)

@@ -13,7 +13,7 @@
                     <option value="">American Express Platinum Card</option>
                 </select>
             </div>
-            <div class="form-text">Payment method that contains the promotion.</div>
+            <div class="form-text">Payment method that contains the promotion, new ones can be added on the <a href="/dashboard/paymentmethods/new">New Payment Method</a> page.</div>
         </div>
 
         <div class="mb-3">
@@ -27,21 +27,27 @@
             <div class="form-text">Percentage is <i>x%</i> back on purchases. Reimbursement is a cashback cash sum on minimum spend reached.</div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3" id="cashback-percentage-container">
             <label for="cashback-percentage" class="form-label">Cashback Percentage %</label>
-            <input type="number" class="form-control" id="cashback-percentage" step="0.01" value="0.0">
-            <div class="form-text">Provide a float value from 0 to 1, 5% would be 0.05.</div>
+            <input type="number" class="form-control" id="cashback-percentage" step="1" value="0">
+            <div class="form-text">Provide a percentage value for every dollar spent.</div>
+        </div>
+
+        <div class="mb-3" id="cashback-reimbursement-container" style="display:none;">
+            <label for="cashback-reimbursement" class="form-label">Cashback Reimbursement $</label>
+            <input type="number" class="form-control" id="cashback-reimbursement" step="10">
+            <div class="form-text">Amount reimbursed for satisfying the promotion's requirements.</div>
         </div>
 
         <div class="mb-3">
             <label for="spending-min" class="form-label">Spending Minimum $</label>
-            <input type="text" class="form-control" id="spending-min">
+            <input type="text" spellcheck="false" class="form-control" id="spending-min">
             <div class="form-text">Optional minimum amount that must be spent for promotion to apply.</div>
         </div>
 
         <div class="mb-3">
             <label for="name" class="form-label">Spending Maximum $</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" spellcheck="false" class="form-control" id="name">
             <div class="form-text">Optional maximum amount until the promotion stops applying.</div>
         </div>
 
@@ -83,21 +89,20 @@
                     <option value="">Daily</option>
                     <option value="">Billing Cycle</option>
                 </select>
-                <button style="width: 160px" class="btn btn-primary ms-2">Add Inclusion</b>
+                <button style="width: 160px" class="btn btn-primary ms-2" id="included-business-categories-add">Add Inclusion</button>
             </div>
 
-            <div class="mb-3">
-                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">resturant <b>x</b></span>
+            <div class="mb-3" id="included-business-categories-items">
             </div>
 
             <label class="form-label" for="included-businesses">Specific businesses</label>
             <div class="d-flex mb-2">
-                <input class="form-control" type="text" id="included-businesses">
-                <button style="width: 160px" class="btn btn-primary ms-2">Add Inclusion</b>
+                <input class="form-control" type="text" spellcheck="false" id="included-businesses">
+                <button style="width: 160px" class="btn btn-primary ms-2" id="included-businesses-add">Add Inclusion</button>
             </div>
 
-            <div class="mb-3">
-                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">walmart <b>x</b></span>
+            <div class="mb-3" id="included-businesses-items">
+                <!-- <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">walmart <b>x</b></span> -->
             </div>
         </div>
 
@@ -118,21 +123,19 @@
                     <option value="">Daily</option>
                     <option value="">Billing Cycle</option>
                 </select>
-                <button style="width: 160px" class="btn btn-primary ms-2">Add Exclusion</b>
+                <button style="width: 160px" class="btn btn-primary ms-2" id="excluded-business-categories-add">Add Exclusion</button>
             </div>
 
-            <div class="mb-3">
-                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">resturant <b>x</b></span>
+            <div class="mb-3" id="excluded-business-categories-items">
             </div>
 
             <label class="form-label" for="excluded-businesses">Specific businesses</label>
             <div class="d-flex mb-2">
-                <input class="form-control" id="excluded-businesses" type="text">
-                <button style="width: 160px" class="btn btn-primary ms-2">Add Exclusion</b>
+                <input class="form-control" id="excluded-businesses" type="text" spellcheck="false">
+                <button style="width: 160px" class="btn btn-primary ms-2" id="excluded-businesses-add">Add Exclusion</button>
             </div>
 
-            <div class="mb-3">
-                <span class="pt-1 pb-1 ps-2 pe-2 btn btn-primary">walmart <b>x</b></span>
+            <div class="mb-3" id="excluded-businesses-items">
             </div>
         </div>
 

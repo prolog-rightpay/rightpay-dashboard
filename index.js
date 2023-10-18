@@ -74,6 +74,7 @@ app.get("/dashboard/promotions/new/", (req, res) => {
         subtitle: "Create a new cashback promotion",
         back_url: "/dashboard/promotions",
         js: [
+            "/static/js/form.js",
             "/static/js/multiselect.js",
             "/static/js/new/cashback_promotion.js"
         ]

@@ -3,11 +3,11 @@
 
 
 <div class="mt-3">
-    <form>
+    <form id="form">
         <div class="mb-3">
             <label class="form-label" for="payment-method">Payment Method</label>
             <div>
-                <select id="payment-method" class="form-select">
+                <select id="payment-method" class="form-select" required>
                     <option value="">Select payment method</option>
                     <option value="">Chase Freedom</option>
                     <option value="">American Express Platinum Card</option>
@@ -47,7 +47,7 @@
 
         <div class="mb-3">
             <label for="name" class="form-label">Spending Maximum $</label>
-            <input type="text" spellcheck="false" class="form-control" id="name">
+            <input type="text" spellcheck="false" class="form-control" id="spending-max">
             <div class="form-text">Optional maximum amount until the promotion stops applying.</div>
         </div>
 
@@ -55,11 +55,11 @@
             <label class="form-label" for="spending-cycle">Spending Cycle</label>
             <div>
                 <select id="spending-cycle" class="form-select">
-                    <option value="">None</option>
-                    <option value="">Annually</option>
-                    <option value="">Monthly</option>
-                    <option value="">Daily</option>
-                    <option value="">Billing Cycle</option>
+                    <option value="none">None</option>
+                    <option value="annually">Annually</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="daily">Daily</option>
+                    <option value="billing">Billing Cycle</option>
                 </select>
             </div>
             <div class="form-text">When do maximum and minimum caps reset and when cashback rewards are tracked.</div>

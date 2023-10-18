@@ -22,8 +22,9 @@ cashbackTypeInput.addEventListener("change", e => {
 })
 
 // multiselect for the business category inclusions
+const includedBusinessCategoriesSelect = document.querySelector("#included-business-categories")
 const inclusionBusinessCategoriesMultiselect = new Multiselect(
-    document.querySelector("#included-business-categories"),
+    includedBusinessCategoriesSelect,
     document.querySelector("#included-business-categories-add"),
     document.querySelector("#included-business-categories-items")
 )
@@ -36,8 +37,9 @@ const inclusionBusinessesMultiselect = new Multiselect(
 )
 
 // multiselect for the business category exclusions
+const excludedBusinessCategoriesSelect = document.querySelector("#excluded-business-categories")
 const excludedBusinessCategoriesMultiselect = new Multiselect(
-    document.querySelector("#excluded-business-categories"),
+    excludedBusinessCategoriesSelect,
     document.querySelector("#excluded-business-categories-add"),
     document.querySelector("#excluded-business-categories-items")
 )
@@ -49,7 +51,8 @@ const excludedBusinessesMultiselect = new Multiselect(
     document.querySelector("#excluded-businesses-items")
 )
 
-const paymentMethods = [
+// updating state of payment methods
+var paymentMethods = [
     {
         id: "aaa",
         name: "Chase Freedom"
@@ -59,6 +62,24 @@ const paymentMethods = [
         name: "American Express Platnium Card"
     }
 ]
+
+const paymentMethodSelect = document.querySelector("#payment-method")
+function setPaymentMethods(newPaymentMethods) {
+    paymentMethods = newPaymentMethods
+
+    const items = paymentMethods.map(e => e.name)
+    loadSelect(paymentMethodSelect, items)
+}
+setPaymentMethods(paymentMethods)
+
+// updating state of business types
+var businessCategories = ["office supplies", "gas station", "ev charging", "restaurants", "cafe", "bar", "fast-food", "bakery", "grocery store", "market", "movie theaters", "amusement park", "tourist attraction", "zoo", "record store", "bowling alley", "travel", "wholesaler", "transit"]
+function setBusinessCategories(newCategories) {
+    businessCategories = newCategories
+    loadSelect(includedBusinessCategoriesSelect, businessCategories)
+    loadSelect(excludedBusinessCategoriesSelect, businessCategories)
+}
+setBusinessCategories(businessCategories)
 
 // form data collection and POST
 function getOptionalNumberValue(e, err) {
@@ -144,7 +165,7 @@ function getFormData(form) {
         }
     }
 
-    const introductoryOffer = form["is-introductory"]
+    const introductoryOffer = form["is-introductory"].checked
     if (introductoryOffer) {
         let introductoryDaysLength = parseFloat(form["introductory-days-length"].value)
         if (isNaN(introductoryDaysLength)) {

@@ -61,7 +61,7 @@ app.get("/dashboard/promotions", (req, res) => {
         id: "cashback_promotions",
         new_url: "/dashboard/promotions/new",
         js: [
-            "/static/js/dashboard/issuers.js"
+            "/static/js/table/cashback_promotions.js"
         ]
     }
     res.render("table/cashback_promotions", opts)

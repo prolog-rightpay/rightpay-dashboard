@@ -9,11 +9,11 @@
     <main>
         <header class="p-3 border-bottom">
             <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <!-- <div class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
-                        <p>Example</p>
-                    </div> -->
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-between">
+                    <div class="d-flex justify-content-center align-items-center mb-2 mb-lg-0 text-decoration-none">
+                        <a style="text-decoration:none;color:inherit;font-weight:500" href="/"><p class="m-0">RightPay Dashboard</p></a>
+                    </div>
+                    <ul class="nav col-12 col-lg-auto justify-content-center">
                         <li><a href="/dashboard/issuers" class="nav-link px-2 <% if (id == 'issuers') { %>text-secondary<% } %>">Issuers</a></li>
                         <li><a href="/dashboard/paymentmethods" class="nav-link px-2 <% if (id == 'payment_methods') { %>text-secondary<% } %>">Payment Methods</a></li>
                         <li><a href="/dashboard/promotions" class="nav-link px-2 <% if (id == 'cashback_promotions') { %>text-secondary<% } %>">Cashback Promotions</a></li>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sign Up - RightPay Dashboard</title>
+</head>
+<body>
+    <div style="height:100vh" class="d-flex flex-column">
+        <header class="p-4 border-bottom">
+            <div class="container">
+                <p style="font-weight: 500" class="mb-0 text-center">RightPay Dashboard</p>
+            </div>
+        </header>
+        <div style="flex:1" class="d-flex align-items-center justify-content-center">
+            <div class="mb-4" style="width:100%;max-width: 300px">
+                <h4 class="mb-3">Sign Up</h4>
+                <form action="/signin" method="post">
+                    <div class="mb-3">
+                        <label for="username-input" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username-input" name="username" pattern="[A-Za-z_-]+" spellcheck="false" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password-input" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password-input" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="refer_token" class="form-label">Referral Token</label>
+                        <input type="text" class="form-control" id="refer-token-input" name="refer_token" required>
+                    </div>
+                    <input type="submit" class="w-100 btn btn-primary mb-2" value="Sign Up"/>
+                    
+                    <% if (locals.error) { %>
+                    <p class="text-danger"><%= error %></p>
+                    <% } %>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/account/signup.js"></script>
+</body>
+</html>

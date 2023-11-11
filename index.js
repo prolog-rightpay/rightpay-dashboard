@@ -1,5 +1,28 @@
+require("dotenv").config()
+
+const { dbConnect } = require("./src/db")
+const { initReferToken } = require("./src/auth")
+
 const express = require("express")
 const app = express()
+
+dbConnect()
+.then(async db => {
+    try {
+        const newToken = await initReferToken(db)
+        console.log(`[info] system referral token for registration: ${newToken}`)
+    } catch (err) {
+        console.log(`[error] failed to init system referral token`)
+        console.log(err)
+    }
+    
+    app.set("db", db)
+})
+.catch(err => {
+    console.log("[error] failed to connect to mongodb")
+    console.log(err)
+    process.exit(1)
+})
 
 app.set("view engine", "ejs")
 app.use("/static", express.static("static"))
@@ -82,7 +105,27 @@ app.get("/dashboard/promotions/new/", (req, res) => {
     res.render("new/cashback_promotion", opts)
 })
 
+app.get("/signin", (req, res) => {
+    const opts = {
+        id: "signin",
+        title: "Sign In",
+        subtitle: "Sign in to account",
+        js: []
+    }
+    res.render("account/signin", opts)
+})
+
+app.get("/signup", (req, res) => {
+    const opts = {
+        id: "signup",
+        title: "Sign Up",
+        subtitle: "Sign up for account",
+        js: []
+    }
+    res.render("account/signup", opts)
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log(`web app listening on port ${port}`)
+    console.log(`[info] listening on port ${port}`)
 })

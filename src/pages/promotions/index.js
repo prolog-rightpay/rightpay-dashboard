@@ -1,4 +1,5 @@
 import TableHeader from "@/app/TableHeader"
+import withAuth from "@/auth/withAuth"
 import RootLayout from "../../app/layout"
 
 const CashbackPromotionsPage = () => {
@@ -38,4 +39,4 @@ const CashbackPromotionsPage = () => {
         </RootLayout>
     )
 }
-export default CashbackPromotionsPage
+export default withAuth(CashbackPromotionsPage)

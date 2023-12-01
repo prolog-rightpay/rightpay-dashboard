@@ -1,4 +1,5 @@
 import RootLayout from "@/app/layout"
+import withAuth from "@/auth/withAuth"
 
 const HomePage = () => {
     return (
@@ -7,4 +8,5 @@ const HomePage = () => {
         </RootLayout>
     )
 }
-export default HomePage
+
+export default withAuth(HomePage)

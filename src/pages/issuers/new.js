@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import TableHeader from "@/app/TableHeader"
 import RootLayout from "@/app/layout"
+import withAuth from '@/auth/withAuth'
 
 const NewIssuerPage = () => {
 
@@ -40,4 +41,4 @@ const NewIssuerPage = () => {
         </RootLayout>
     )
 }
-export default NewIssuerPage
+export default withAuth(NewIssuerPage)

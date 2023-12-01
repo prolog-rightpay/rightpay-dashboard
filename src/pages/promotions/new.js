@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import TableHeader from "@/app/TableHeader"
 import RootLayout from "@/app/layout"
 import MultiSelect from "@/app/MultiSelect"
+import withAuth from '@/auth/withAuth'
 
 const paymentMethods = [
     {
@@ -356,4 +357,4 @@ const NewPromotionPage = () => {
         </RootLayout>
     )
 }
-export default NewPromotionPage
+export default withAuth(NewPromotionPage)

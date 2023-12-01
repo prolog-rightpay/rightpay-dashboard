@@ -1,5 +1,6 @@
 import TableHeader from "@/app/TableHeader"
 import RootLayout from "@/app/layout"
+import withAuth from "@/auth/withAuth"
 
 const data = [
     {
@@ -63,4 +64,4 @@ const PaymentMethodsPage = () => {
         </RootLayout>
     )
 }
-export default PaymentMethodsPage
+export default withAuth(PaymentMethodsPage)

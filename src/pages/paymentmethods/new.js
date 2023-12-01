@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import TableHeader from "@/app/TableHeader"
 import RootLayout from "@/app/layout"
+import withAuth from '@/auth/withAuth'
 
 const issuersData = [
     {
@@ -88,4 +89,4 @@ const NewPaymentMethodPage = () => {
         </RootLayout>
     )
 }
-export default NewPaymentMethodPage
+export default withAuth(NewPaymentMethodPage)

@@ -27,7 +27,7 @@ const SignInPage = () => {
                 setErrorState(err.message)
             } else {
                 console.log(err)
-                setErrorState("Unknown error occured.")
+                setErrorState("Unknown error occurred.")
             }
         })
     }
